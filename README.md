@@ -46,7 +46,7 @@ The [concept website](https://orpheane.github.io/Sensory-Atlas/) includes a smal
 
 ### Early visual exploration
 
-<table><tr><td width="50%"><img src="assets/overview.svg" alt="Early visual direction with map and sensory indicators" width="100%"></td><td width="50%"><img src="assets/experience.svg" alt="Early illustration of someone reviewing sensory ratings for a café" width="100%"></td></tr></table>
+<table><tr><td width="50%"><img src="assets/hero.svg" alt="Early visual direction with map and sensory indicators" width="100%"></td><td width="50%"><img src="assets/experience.svg" alt="Early illustration of someone reviewing sensory ratings for a café" width="100%"></td></tr></table>
 
 *These are AI-assisted concept illustrations, not screenshots from a working product.*
 
