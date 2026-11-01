@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8f7">
+  <meta name="description" content="Sensory Atlas is an ideathon concept for helping people explore public spaces through noise, light, crowd, and quiet-space information tailored to their needs.">
+  <meta property="og:title" content="Sensory Atlas | Accessibility beyond physical barriers">
+  <meta property="og:description" content="Discover the concept for a community-powered sensory accessibility map. Explore an interactive, fictional demonstration.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero.svg">
+  <title>Sensory Atlas | Accessibility beyond physical barriers</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="Sensory Atlas - home">
+        <svg class="brand-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3.8c-9.3 0-16.8 7.4-16.8 16.7C7.2 32.5 24 44 24 44s16.8-11.5 16.8-23.5C40.8 11.2 33.3 3.8 24 3.8Z" fill="#4b9e96"/><path d="M24 15.4c-3.3-4.6-10.5-1.9-10.5 3.8 0 4.1 4.5 7.5 10.5 11.8 6-4.3 10.5-7.7 10.5-11.8 0-5.7-7.2-8.4-10.5-3.8Z" fill="#fff"/></svg>
+        <span>Sensory <strong>Atlas</strong></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#problem">The why</a>
+        <a href="#features">The idea</a>
+        <a href="#try">Concept demo</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/Orpheane/Sensory-Atlas" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="pulse" aria-hidden="true"></span> STEMergent Hacks 2026 · Ideathon concept</span>
+          <h1>Find spaces that <em>fit your senses.</em></h1>
+          <p class="hero-lead">Accessibility is more than getting through the door. Sensory Atlas imagines a way to explore public places through noise, lighting, crowds, and quiet spaces, with your own comfort in mind.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#try">Explore the concept <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="#problem">Discover the story <span aria-hidden="true">↓</span></a></div>
+          <p class="honesty-note"><span class="note-dot" aria-hidden="true"></span> Early-stage concept. The interactive example below uses fictional places and sample data.</p>
+        </div>
+        <div class="hero-art">
+          <div class="hero-art-back"></div>
+          <img src="assets/hero.svg" width="1536" height="1024" alt="Concept illustration of Sensory Atlas showing a calm city map with sensory zones for noise, lighting, crowding, and quiet retreats.">
+          <div class="art-caption"><span class="art-caption-icon" aria-hidden="true">✦</span><span>More information. More choice. Less uncertainty.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="problem section" id="problem">
+      <div class="container">
+        <div class="section-intro"><span class="kicker">01 / THE PROBLEM</span><h2>Some barriers are <span class="accent">invisible.</span></h2><p>Maps can tell us whether a building has an elevator. They rarely tell us what it might feel like to be inside.</p></div>
+        <div class="problem-grid">
+          <article class="problem-card"><div class="problem-symbol symbol-sound" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 9c2 2 2 4 0 6M20 6c4 4 4 8 0 12"/></svg></div><h3>Unexpected noise</h3><p>Music, chatter, alarms, and sudden sounds can make a familiar activity exhausting.</p></article>
+          <article class="problem-card"><div class="problem-symbol symbol-light" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div><h3>Overwhelming light</h3><p>Harsh overhead lighting, glare, and flicker are rarely included in accessibility information.</p></article>
+          <article class="problem-card"><div class="problem-symbol symbol-crowd" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2z"/><path d="M17 5a3 3 0 0 1 0 6M17 14a5 5 0 0 1 4 5v1"/></svg></div><h3>Unpredictable crowds</h3><p>Busy spaces and changing conditions can make it difficult to plan with confidence.</p></article>
+        </div>
+        <div class="quote-band"><span aria-hidden="true">“</span><p>Why can we check whether a building has an elevator, but not whether its lighting, noise, or crowds might overwhelm us?</p></div>
+      </div>
+    </section>
+
+    <section class="features section" id="features">
+      <div class="container feature-layout">
+        <div><span class="kicker">02 / THE IDEA</span><h2>Make sensory accessibility <span class="accent">visible.</span></h2><p class="section-description">Sensory Atlas is a proposed collaborative map that gives people meaningful context before they visit a place. Not one universal rating, but information they can interpret based on their needs.</p>
+          <div class="feature-list">
+            <div class="feature-item"><span>01</span><div><h3>Explore places</h3><p>Discover information about sound, lighting, crowd levels, and places to take a break.</p></div></div>
+            <div class="feature-item"><span>02</span><div><h3>Choose what matters</h3><p>Set personal sensory preferences without sharing a diagnosis or medical history.</p></div></div>
+            <div class="feature-item"><span>03</span><div><h3>Learn from community observations</h3><p>See different perspectives, when observations were made, and when details may be outdated.</p></div></div>
+          </div>
+        </div>
+        <figure class="feature-visual"><img src="assets/experience.svg" alt="Early illustrated concept of a person checking sensory information for a café, including noise, lighting, crowd levels, and the availability of a quiet space." loading="lazy" width="1536" height="1024"><figcaption>Early visual exploration, not a screenshot of a working application.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="demo section" id="try">
+      <div class="container">
+        <div class="demo-heading"><div><span class="kicker">03 / INTERACTIVE CONCEPT</span><h2>What feels comfortable <span class="accent">to you?</span></h2><p>Adjust three preferences to see how a future Sensory Atlas could help you compare places. There is no single definition of a “good” sensory environment.</p></div><div class="demo-stamp">Interactive illustration <span aria-hidden="true">✳</span></div></div>
+        <div class="demo-shell">
+          <section class="preferences" aria-labelledby="preferences-title">
+            <div class="panel-heading"><span class="panel-icon" aria-hidden="true">◎</span><div><h3 id="preferences-title">Your comfort preferences</h3><p>Maximum intensity that feels comfortable</p></div></div>
+            <div class="control-group"><div class="control-label"><label for="noise">Noise</label><output id="noise-value" for="noise">Moderate (3/5)</output></div><input id="noise" type="range" min="1" max="5" step="1" value="3" aria-describedby="noise-tip"><p class="control-tip" id="noise-tip">1 = very quiet, 5 = very noisy</p></div>
+            <div class="control-group"><div class="control-label"><label for="light">Light intensity</label><output id="light-value" for="light">Moderate (3/5)</output></div><input id="light" type="range" min="1" max="5" step="1" value="3" aria-describedby="light-tip"><p class="control-tip" id="light-tip">1 = very dim, 5 = very bright</p></div>
+            <div class="control-group"><div class="control-label"><label for="crowd">Crowd level</label><output id="crowd-value" for="crowd">Moderate (3/5)</output></div><input id="crowd" type="range" min="1" max="5" step="1" value="3" aria-describedby="crowd-tip"><p class="control-tip" id="crowd-tip">1 = very few people, 5 = very crowded</p></div>
+            <div class="demo-reset"><button id="reset" class="reset-button" type="button">Reset preferences ↺</button><span>No account needed</span></div>
+          </section>
+          <section class="results" aria-labelledby="results-title"><div class="results-heading"><div><h3 id="results-title">Places you might explore</h3><p>Illustrative venues, sorted by matched preferences</p></div><span class="results-counter" id="results-counter" aria-live="polite">4 places</span></div>
+            <div id="place-list" class="place-list" aria-live="polite" aria-atomic="true"></div>
+            <p class="results-disclaimer"><strong>Concept demo:</strong> These are fictional places with invented sample ratings. Matching is simplified and does not represent a safety assessment or live environmental measurements.</p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section principle-section" id="principles">
+      <div class="container principle-layout"><div><span class="kicker">04 / DESIGNED WITH CARE</span><h2>Personal by design.<br><span class="accent">Private by default.</span></h2></div><div class="principle-grid"><article><span class="principle-icon" aria-hidden="true">◌</span><h3>No universal scores</h3><p>People have different preferences. Show the details, not a judgment about the person or place.</p></article><article><span class="principle-icon" aria-hidden="true">◷</span><h3>Context matters</h3><p>Community observations should include timestamps and clear information about data freshness.</p></article><article><span class="principle-icon" aria-hidden="true">⌁</span><h3>Privacy first</h3><p>No medical diagnosis required. Optional location access and a low-data approach are priorities.</p></article><article><span class="principle-icon" aria-hidden="true">✳</span><h3>Accessible from day one</h3><p>Readable typography, keyboard access, reduced motion, and non-map alternatives matter.</p></article></div></div>
+    </section>
+
+    <section class="roadmap-section section" id="roadmap"><div class="container"><span class="kicker">05 / WHAT COMES NEXT</span><h2>Small steps, <span class="accent">lasting impact.</span></h2><p class="roadmap-lead">A realistic path from an ideathon idea to a community-supported tool.</p><div class="roadmap-list">
+      <article class="roadmap-step current"><div class="roadmap-marker">01</div><div><span class="step-status">Current phase</span><h3>Concept & visual identity</h3><p>Define the problem, design principles, initial illustrations, and a transparent interactive example.</p></div></article>
+      <article class="roadmap-step"><div class="roadmap-marker">02</div><div><span class="step-status">Planned</span><h3>Community discovery</h3><p>Validate real needs with neurodivergent and sensory-sensitive people before building around assumptions.</p></div></article>
+      <article class="roadmap-step"><div class="roadmap-marker">03</div><div><span class="step-status">Planned</span><h3>Working MVP</h3><p>Prototype a real map, place details, personal filters, and moderated community observations.</p></div></article>
+      <article class="roadmap-step"><div class="roadmap-marker">04</div><div><span class="step-status">Future goal</span><h3>Local pilot, then growth</h3><p>Test with a small group of real places, improve reliability, and explore broader partnerships.</p></div></article>
+    </div></div></section>
+
+    <section class="closing section"><div class="container"><div class="closing-card"><span class="kicker">WHY THIS MATTERS</span><h2>A place should be more than somewhere you can enter.<br><em>It should be somewhere you can experience.</em></h2><p>Sensory Atlas began with a personal question. Its goal is to make everyday environments more understandable and give people more freedom to choose what works for them.</p><div class="closing-links"><a class="button button-light" href="https://github.com/Orpheane/Sensory-Atlas" target="_blank" rel="noopener noreferrer">Explore the project on GitHub ↗</a><a href="#top" class="back-top">Back to top ↑</a></div></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-layout"><div class="footer-brand"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3.8c-9.3 0-16.8 7.4-16.8 16.7C7.2 32.5 24 44 24 44s16.8-11.5 16.8-23.5C40.8 11.2 33.3 3.8 24 3.8Z" fill="#4b9e96"/><path d="M24 15.4c-3.3-4.6-10.5-1.9-10.5 3.8 0 4.1 4.5 7.5 10.5 11.8 6-4.3 10.5-7.7 10.5-11.8 0-5.7-7.2-8.4-10.5-3.8Z" fill="#fff"/></svg><strong>Sensory Atlas</strong></div><p>Concept by <a href="https://github.com/Orpheane" target="_blank" rel="noopener noreferrer">Orpheane</a> · 2026</p><p>Created for STEMergent Hacks 2026 · Ideathon pathway</p></div></footer>
+</body>
+</html>
