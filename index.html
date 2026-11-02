@@ -118,47 +118,125 @@
     <section class="demo section" id="try">
       <div class="container">
         <div class="demo-heading"><div><span class="kicker">03 / INTERACTIVE CONCEPT</span><h2>What feels comfortable <span class="accent">to you?</span></h2><p>Adjust three preferences to see how a future Sensory Atlas could help you compare places. There is no single definition of a “good” sensory environment.</p></div><div class="demo-stamp">Interactive illustration <span aria-hidden="true">✳</span></div></div>
-        <section class="map-demo" aria-labelledby="map-title">
-          <div class="map-demo-heading">
-            <div>
-              <span class="kicker">THE MAP EXPERIENCE</span>
-              <h3 id="map-title">See your comfort on the map.</h3>
-              <p>Explore a fictional neighborhood. Choose a location marker to see its sensory details, then change the preferences below to see how matches change.</p>
-            </div>
-            <div class="map-legend" aria-label="Map match legend">
-              <span><i class="legend-dot legend-good" aria-hidden="true"></i>3/3 match</span>
-              <span><i class="legend-dot legend-some" aria-hidden="true"></i>2/3 match</span>
-              <span><i class="legend-dot legend-low" aria-hidden="true"></i>0-1/3 match</span>
-            </div>
-          </div>
-          <div class="map-canvas" aria-label="Illustrated map of a fictional neighborhood with four interactive venue markers">
-            <svg class="illustrated-map" viewBox="0 0 960 490" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-              <rect width="960" height="490" fill="var(--map-land)"/>
-              <path d="M0 350 Q125 284 230 342 T470 356 T720 310 T960 292 L960 490 H0Z" fill="var(--map-water)"/>
-              <path d="M0 377 Q125 312 230 370 T470 385 T720 337 T960 322" fill="none" stroke="var(--map-water-shine)" stroke-width="5" opacity=".8"/>
-              <path d="M0 90 H960 M0 237 H960 M145 0 V490 M358 0 V490 M590 0 V490 M812 0 V490" stroke="var(--map-road-outline)" stroke-width="34" fill="none"/>
-              <path d="M0 90 H960 M0 237 H960 M145 0 V490 M358 0 V490 M590 0 V490 M812 0 V490" stroke="var(--map-road)" stroke-width="27" fill="none"/>
-              <path d="M0 237 H960 M358 0 V490" stroke="var(--map-road-dash)" stroke-width="2" stroke-dasharray="9 15" fill="none" opacity=".65"/>
-              <g fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="2">
-                <rect x="25" y="17" width="91" height="43" rx="9"/><rect x="183" y="23" width="137" height="39" rx="9"/><rect x="393" y="18" width="160" height="42" rx="9"/><rect x="634" y="20" width="137" height="42" rx="9"/><rect x="850" y="18" width="82" height="43" rx="9"/>
-                <rect x="24" y="131" width="90" height="70" rx="10"/><rect x="183" y="124" width="134" height="82" rx="10"/><rect x="393" y="126" width="153" height="77" rx="10"/><rect x="630" y="126" width="140" height="80" rx="10"/><rect x="849" y="126" width="83" height="80" rx="10"/>
-                <rect x="24" y="281" width="94" height="42" rx="8"/><rect x="181" y="277" width="140" height="53" rx="9"/><rect x="393" y="277" width="154" height="53" rx="9"/><rect x="847" y="277" width="86" height="55" rx="9"/>
-              </g>
-              <path d="M626 273 H774 V401 Q700 421 624 395Z" fill="var(--map-park)" opacity=".95"/>
-              <g fill="var(--map-tree)"><circle cx="659" cy="296" r="12"/><circle cx="729" cy="307" r="18"/><circle cx="684" cy="369" r="17"/><circle cx="754" cy="360" r="11"/><circle cx="493" cy="345" r="14"/><circle cx="72" cy="337" r="14"/><circle cx="264" cy="356" r="12"/></g>
-              <path d="M647 380 Q679 341 710 344 T776 384" fill="none" stroke="var(--map-park-path)" stroke-width="9" stroke-linecap="round"/>
-              <g stroke="var(--map-building-edge)" stroke-width="3" stroke-linecap="round" opacity=".6"><path d="M42 37 H93 M199 43 H300 M416 37 H527 M648 39 H743 M409 159 H532 M194 157 H298"/></g>
-              <text x="45" y="466" fill="var(--map-label)" font-size="16" font-weight="700" letter-spacing="2">FICTIONAL NEIGHBORHOOD · NOT REAL MAP DATA</text>
-            </svg>
-            <div id="map-pins" class="map-pins" aria-label="Select a fictional place"></div>
-          </div>
-          <div class="map-detail" id="map-detail" role="status" aria-live="polite">
-            <span class="map-detail-icon" aria-hidden="true">⌖</span>
-            <div><strong id="map-detail-name">Select a marker to explore a place</strong><p id="map-detail-description">Every place shown is fictional. Sensory ratings are illustrative.</p></div>
-          </div>
-          <p class="map-note"><strong>Map concept only:</strong> This illustrated layout is not a real map, navigation service, or live sensor feed. Selectable pins and the place list use the same fictional sample data.</p>
-        </section>
-        <div class="demo-shell">
+        
+<section class="map-demo map-demo-v2" aria-labelledby="map-title">
+  <div class="map-demo-heading">
+    <div>
+      <span class="kicker">03 / EXPLORE THE CONCEPT</span>
+      <h3 id="map-title">A city map, made for your senses.</h3>
+      <p>Try the map of our fictional neighborhood. Explore the places, choose your preferences, or compare two imagined routes to the community hub.</p>
+    </div>
+    <span class="map-demo-status"><span aria-hidden="true">✳</span> Interactive prototype</span>
+  </div>
+  <div class="map-toolbar">
+    <div class="map-view-switch" role="group" aria-label="Map view">
+      <button type="button" id="view-places" class="map-view-button" aria-pressed="true">⌖ <span>Places</span></button>
+      <button type="button" id="view-routes" class="map-view-button" aria-pressed="false">⌁ <span>Compare routes</span></button>
+    </div>
+    <label class="zones-switch"><input type="checkbox" id="show-zones" checked><span>Show sensory areas</span></label>
+  </div>
+  <div class="map-key" id="map-key-places">
+    <span><i class="legend-dot legend-good" aria-hidden="true"></i> Full preference match</span>
+    <span><i class="legend-dot legend-some" aria-hidden="true"></i> Partial match</span>
+    <span><i class="legend-dot legend-low" aria-hidden="true"></i> Low match</span>
+    <span class="map-key-footnote">Match values change with your sliders below</span>
+  </div>
+  <div class="map-key" id="map-key-routes" hidden>
+    <span><i class="route-key-line route-key-quiet" aria-hidden="true"></i> Quieter route illustration</span>
+    <span><i class="route-key-line route-key-direct" aria-hidden="true"></i> Direct route illustration</span>
+    <span class="map-key-footnote">Illustrative only, not calculated directions</span>
+  </div>
+  <p class="map-mobile-hint">On a smaller screen, swipe sideways to explore the whole map.</p>
+  <div class="map-scroll" role="region" tabindex="0" aria-label="Interactive fictional neighborhood map, horizontally scrollable on smaller screens">
+    <div class="map-canvas map-canvas-v2" id="map-canvas">
+      <svg class="illustrated-map" viewBox="0 0 960 490" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="map-grain" patternUnits="userSpaceOnUse" width="90" height="90"><path d="M0 88 L90 88" stroke="var(--map-grain)" stroke-width="1"/></pattern>
+        </defs>
+        <rect width="960" height="490" fill="var(--map-land)"/>
+        <path d="M-40 0 L154 0 Q200 35 169 94 C132 149 204 191 163 271 Q132 346 181 405 L160 490 L0 490Z" fill="var(--map-water)"/>
+        <path d="M94 -20 C202 73 116 126 160 213 S103 363 179 506" fill="none" stroke="var(--map-water-shine)" stroke-width="7" opacity=".65"/>
+        <path d="M598 16 C660 5 716 29 750 69 Q795 136 746 195 Q715 237 625 244 L585 218 Q562 161 587 101Z" fill="var(--map-park)"/>
+        <path d="M571 307 Q628 264 710 292 T782 399 Q739 469 620 452 Q555 417 571 307Z" fill="var(--map-park)"/>
+        <path d="M239 335 Q302 316 373 336 T411 432 Q335 475 265 455 Q217 418 239 335Z" fill="var(--map-park-muted)"/>
+        <g fill="none" stroke="var(--map-road-border)" stroke-linecap="round" stroke-linejoin="round" stroke-width="32">
+          <path d="M-30 108 C153 75 292 92 474 103 S767 56 995 89"/>
+          <path d="M-30 263 C189 245 274 270 449 245 S748 220 991 262"/>
+          <path d="M-18 452 C147 418 329 456 502 420 S806 403 990 428"/>
+          <path d="M293 -20 C263 109 291 203 294 284 S321 425 310 520"/>
+          <path d="M512 -20 C533 101 495 218 511 310 S535 427 513 515"/>
+          <path d="M790 -20 C761 110 817 201 778 313 S784 431 780 515"/>
+        </g>
+        <g fill="none" stroke="var(--map-road)" stroke-linecap="round" stroke-linejoin="round" stroke-width="24">
+          <path d="M-30 108 C153 75 292 92 474 103 S767 56 995 89"/>
+          <path d="M-30 263 C189 245 274 270 449 245 S748 220 991 262"/>
+          <path d="M-18 452 C147 418 329 456 502 420 S806 403 990 428"/>
+          <path d="M293 -20 C263 109 291 203 294 284 S321 425 310 520"/>
+          <path d="M512 -20 C533 101 495 218 511 310 S535 427 513 515"/>
+          <path d="M790 -20 C761 110 817 201 778 313 S784 431 780 515"/>
+        </g>
+        <g fill="none" stroke="var(--map-small-road)" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
+          <path d="M181 157 C277 152 354 171 447 154 L592 146"/>
+          <path d="M405 0 C411 98 421 188 422 249 S436 397 438 490"/>
+          <path d="M556 343 C627 315 706 334 846 335"/>
+          <path d="M210 332 C298 349 365 306 470 329"/>
+          <path d="M873 0 C879 133 862 242 874 387"/>
+        </g>
+        <path d="M97 104 L194 106 M120 260 L209 258 M125 451 L217 440" stroke="var(--map-bridge)" stroke-width="18"/>
+        <g><rect x="180" y="18" width="112" height="47" rx="13" transform="rotate(-4 236 41.5)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="314" y="24" width="98" height="39" rx="9" transform="rotate(3 363 43.5)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="440" y="15" width="76" height="43" rx="9" transform="rotate(-2 478 36.5)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="562" y="20" width="65" height="46" rx="13" transform="rotate(5 594.5 43)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="802" y="11" width="101" height="43" rx="9" transform="rotate(4 852.5 32.5)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="180" y="185" width="124" height="51" rx="9" transform="rotate(4 242 210.5)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="318" y="198" width="102" height="48" rx="13" transform="rotate(-5 369 222)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="448" y="188" width="95" height="43" rx="9" transform="rotate(4 495.5 209.5)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="556" y="195" width="106" height="38" rx="9" transform="rotate(-3 609 214)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="778" y="193" width="126" height="52" rx="13" transform="rotate(2 841 219)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="207" y="273" width="92" height="43" rx="9" transform="rotate(-4 253 294.5)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="310" y="270" width="104" height="50" rx="9" transform="rotate(3 362 295)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="430" y="279" width="71" height="36" rx="13" transform="rotate(5 465.5 297)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="526" y="281" width="80" height="42" rx="9" transform="rotate(-3 566 302)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="812" y="273" width="94" height="44" rx="9" transform="rotate(3 859 295)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="205" y="365" width="101" height="45" rx="13" transform="rotate(-3 255.5 387.5)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="321" y="371" width="100" height="46" rx="9" transform="rotate(4 371 394)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="460" y="371" width="91" height="48" rx="9" transform="rotate(-2 505.5 395)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="780" y="379" width="112" height="44" rx="13" transform="rotate(-4 836 401)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="22" y="195" width="76" height="51" rx="9" transform="rotate(-3 60 220.5)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/><rect x="28" y="28" width="73" height="35" rx="9" transform="rotate(4 64.5 45.5)" fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="1.5"/></g>
+        <path d="M612 198 Q641 150 671 154 T738 181" stroke="var(--map-park-path)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <path d="M593 411 Q634 365 668 383 T741 379" stroke="var(--map-park-path)" stroke-width="11" fill="none" stroke-linecap="round"/>
+        <g><g opacity=".77"><circle cx="190" cy="48" r="14" fill="var(--map-tree-halo)"/><circle cx="190" cy="48" r="9" fill="var(--map-tree)"/><circle cx="187" cy="45" r="4" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="222" cy="134" r="15" fill="var(--map-tree-halo)"/><circle cx="222" cy="134" r="10" fill="var(--map-tree)"/><circle cx="219" cy="131" r="5" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="172" cy="376" r="14" fill="var(--map-tree-halo)"/><circle cx="172" cy="376" r="9" fill="var(--map-tree)"/><circle cx="169" cy="373" r="4" fill="var(--map-tree-light)"/></g><g opacity=".77"><circle cx="280" cy="425" r="16" fill="var(--map-tree-halo)"/><circle cx="280" cy="425" r="11" fill="var(--map-tree)"/><circle cx="277" cy="422" r="6" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="386" cy="104" r="15" fill="var(--map-tree-halo)"/><circle cx="386" cy="104" r="10" fill="var(--map-tree)"/><circle cx="383" cy="101" r="5" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="422" cy="172" r="13" fill="var(--map-tree-halo)"/><circle cx="422" cy="172" r="8" fill="var(--map-tree)"/><circle cx="419" cy="169" r="3" fill="var(--map-tree-light)"/></g><g opacity=".77"><circle cx="443" cy="413" r="15" fill="var(--map-tree-halo)"/><circle cx="443" cy="413" r="10" fill="var(--map-tree)"/><circle cx="440" cy="410" r="5" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="533" cy="56" r="13" fill="var(--map-tree-halo)"/><circle cx="533" cy="56" r="8" fill="var(--map-tree)"/><circle cx="530" cy="53" r="3" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="570" cy="168" r="15" fill="var(--map-tree-halo)"/><circle cx="570" cy="168" r="10" fill="var(--map-tree)"/><circle cx="567" cy="165" r="5" fill="var(--map-tree-light)"/></g><g opacity=".77"><circle cx="640" cy="94" r="17" fill="var(--map-tree-halo)"/><circle cx="640" cy="94" r="12" fill="var(--map-tree)"/><circle cx="637" cy="91" r="7" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="681" cy="77" r="15" fill="var(--map-tree-halo)"/><circle cx="681" cy="77" r="10" fill="var(--map-tree)"/><circle cx="678" cy="74" r="5" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="762" cy="144" r="16" fill="var(--map-tree-halo)"/><circle cx="762" cy="144" r="11" fill="var(--map-tree)"/><circle cx="759" cy="141" r="6" fill="var(--map-tree-light)"/></g><g opacity=".77"><circle cx="730" cy="316" r="15" fill="var(--map-tree-halo)"/><circle cx="730" cy="316" r="10" fill="var(--map-tree)"/><circle cx="727" cy="313" r="5" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="675" cy="366" r="15" fill="var(--map-tree-halo)"/><circle cx="675" cy="366" r="10" fill="var(--map-tree)"/><circle cx="672" cy="363" r="5" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="835" cy="424" r="15" fill="var(--map-tree-halo)"/><circle cx="835" cy="424" r="10" fill="var(--map-tree)"/><circle cx="832" cy="421" r="5" fill="var(--map-tree-light)"/></g><g opacity=".77"><circle cx="887" cy="130" r="13" fill="var(--map-tree-halo)"/><circle cx="887" cy="130" r="8" fill="var(--map-tree)"/><circle cx="884" cy="127" r="3" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="895" cy="327" r="17" fill="var(--map-tree-halo)"/><circle cx="895" cy="327" r="12" fill="var(--map-tree)"/><circle cx="892" cy="324" r="7" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="355" cy="326" r="16" fill="var(--map-tree-halo)"/><circle cx="355" cy="326" r="11" fill="var(--map-tree)"/><circle cx="352" cy="323" r="6" fill="var(--map-tree-light)"/></g><g opacity=".77"><circle cx="582" cy="422" r="14" fill="var(--map-tree-halo)"/><circle cx="582" cy="422" r="9" fill="var(--map-tree)"/><circle cx="579" cy="419" r="4" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="95" cy="302" r="14" fill="var(--map-tree-halo)"/><circle cx="95" cy="302" r="9" fill="var(--map-tree)"/><circle cx="92" cy="299" r="4" fill="var(--map-tree-light)"/></g><g opacity=".96"><circle cx="640" cy="200" r="13" fill="var(--map-tree-halo)"/><circle cx="640" cy="200" r="8" fill="var(--map-tree)"/><circle cx="637" cy="197" r="3" fill="var(--map-tree-light)"/></g><g opacity=".77"><circle cx="810" cy="28" r="15" fill="var(--map-tree-halo)"/><circle cx="810" cy="28" r="10" fill="var(--map-tree)"/><circle cx="807" cy="25" r="5" fill="var(--map-tree-light)"/></g></g>
+        <g font-family="system-ui,sans-serif" font-weight="700" fill="var(--map-label)">
+          <text x="627" y="126" font-size="15">Cedar Park</text>
+          <text x="606" y="354" font-size="14">Garden Walk</text>
+          <text x="35" y="338" font-size="13" transform="rotate(-90 35 338)">RIVERSIDE</text>
+          <text x="360" y="233" font-size="13" opacity=".72">Old Town</text>
+        </g>
+        <g id="sensory-areas" aria-hidden="true">
+          <ellipse cx="279" cy="150" rx="138" ry="115" fill="var(--zone-calm)" opacity=".35"/>
+          <ellipse cx="675" cy="152" rx="137" ry="126" fill="var(--zone-calm)" opacity=".37"/>
+          <ellipse cx="492" cy="275" rx="116" ry="114" fill="var(--zone-mixed)" opacity=".33"/>
+          <ellipse cx="822" cy="326" rx="122" ry="118" fill="var(--zone-busy)" opacity=".35"/>
+        </g>
+        <g id="route-lines" class="route-lines" hidden>
+          <path class="route-underlay" d="M205 402 C330 376 378 307 468 289 S611 203 691 137" />
+          <path class="route-direct" d="M205 402 C330 376 378 307 468 289 S611 203 691 137" />
+          <path class="route-underlay" d="M205 402 C247 416 324 410 372 370 S456 339 522 345 S641 292 652 230 Q670 175 691 137" />
+          <path class="route-quiet" d="M205 402 C247 416 324 410 372 370 S456 339 522 345 S641 292 652 230 Q670 175 691 137" />
+          <circle cx="205" cy="402" r="16" class="route-terminal-ring"/><circle cx="205" cy="402" r="7" class="route-terminal-dot"/>
+          <circle cx="691" cy="137" r="16" class="route-terminal-ring"/><circle cx="691" cy="137" r="7" class="route-terminal-dot"/>
+          <g class="route-end-label"><rect x="575" y="103" width="210" height="29" rx="14"/><text x="680" y="122" text-anchor="middle">JUNIPER COMMUNITY HUB</text></g>
+          <g class="route-start-label"><rect x="115" y="430" width="170" height="27" rx="13"/><text x="200" y="448" text-anchor="middle">MEADOW GATE · START</text></g>
+        </g>
+        <g class="map-attribution"><rect x="15" y="458" width="298" height="23" rx="11"/><text x="27" y="474">FICTIONAL MAP · SAMPLE SENSOR DATA ONLY</text></g>
+      </svg>
+      <div id="map-pins" class="map-pins" aria-label="Select a fictional place"></div>
+    </div>
+  </div>
+  <section class="map-place-details" id="map-panel-places" aria-label="Selected place details">
+    <div class="map-place-top">
+      <span class="map-place-icon" id="map-detail-icon" aria-hidden="true">📚</span>
+      <div class="map-place-heading"><span class="map-place-type" id="map-detail-type">Library · Fictional place</span><h4 id="map-detail-name">Willow Reading Room</h4><p id="map-detail-description">Soft lighting and quiet reading corners</p></div>
+      <span class="map-place-match match-good" id="map-detail-match">3 of 3 preferences matched</span>
+    </div>
+    <div class="map-place-metrics" id="map-place-metrics">
+      <span id="map-detail-noise">Noise: 1/5 · Very low</span><span id="map-detail-light">Light: 2/5 · Low</span><span id="map-detail-crowd">Crowds: 1/5 · Very low</span><span id="map-detail-quiet">Quiet area noted</span>
+    </div>
+    <p class="map-place-footnote">An example of how a real location page could communicate sensory information. Values are invented for this concept.</p>
+  </section>
+  <section class="map-route-panel" id="map-panel-routes" aria-labelledby="map-route-title" hidden>
+    <div class="route-panel-intro"><h4 id="map-route-title">Two ways to the same destination</h4><p>Meadow Gate to Juniper Community Hub. Compare an imagined direct route with an imagined quieter route through green spaces.</p></div>
+    <div class="route-choice-grid" role="group" aria-label="Select example route">
+      <button class="route-choice route-choice-calm" type="button" id="select-route-quiet" aria-pressed="true"><strong>🍃 Quieter route</strong><span>Designed to illustrate a calmer, greener journey.</span><em>Selected route</em></button>
+      <button class="route-choice route-choice-direct" type="button" id="select-route-direct" aria-pressed="false"><strong>⌁ Direct route</strong><span>A more direct path through a busier part of the neighborhood.</span><em>Compare this route</em></button>
+    </div>
+    <p class="route-caution">These are illustrated paths, not calculated directions. No journey times, measured environmental conditions, or safety guarantees are implied.</p>
+  </section>
+  <p class="map-note"><strong>Concept only:</strong> All locations, sensory areas and route options are fictional. There is no live map, verified crowd data or navigation engine. Pins and ratings respond to the preferences below.</p>
+</section>
+        
+<div class="demo-shell">
           <section class="preferences" aria-labelledby="preferences-title">
             <div class="panel-heading"><span class="panel-icon" aria-hidden="true">◎</span><div><h3 id="preferences-title">Your comfort preferences</h3><p>Maximum intensity that feels comfortable</p></div></div>
             <div class="control-group"><div class="control-label"><label for="noise">Noise</label><output id="noise-value" for="noise">Moderate (3/5)</output></div><input id="noise" type="range" min="1" max="5" step="1" value="3" aria-describedby="noise-tip"><p class="control-tip" id="noise-tip">1 = very quiet, 5 = very noisy</p></div>
