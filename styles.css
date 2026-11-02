@@ -140,3 +140,6 @@ html[data-theme="dark"] .roadmap-step .step-status,html[data-theme="dark"] .road
 html[data-theme="dark"] .closing-card{background:linear-gradient(125deg,#15453f,#1e344b)}
 html[data-theme="dark"] .site-footer p{color:#b9cbd0}
 html[data-theme="dark"] .skip-link{color:#142b35}
+
+.map-pin-emoji{display:block;transform:rotate(45deg)}
+@media(max-width:480px){.nav-cta{display:none}}
