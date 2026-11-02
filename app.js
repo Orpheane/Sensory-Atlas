@@ -66,7 +66,8 @@ function makePin(place,score){
   btn.style.top=place.y+'%';
   btn.setAttribute('aria-label',place.name+', '+place.type+', '+score+' of 3 sensory preferences matched. Select for details.');
   btn.setAttribute('aria-pressed',selectedPlaceId===place.id?'true':'false');
-  const symbol=makeElement('span','map-pin-symbol',place.icon);symbol.setAttribute('aria-hidden','true');
+  const symbol=makeElement('span','map-pin-symbol');symbol.setAttribute('aria-hidden','true');
+  symbol.append(makeElement('span','map-pin-emoji',place.icon));
   const label=makeElement('span','map-pin-label',place.name);label.setAttribute('aria-hidden','true');
   btn.append(symbol,label);
   btn.addEventListener('click',()=>selectPlace(place.id));
