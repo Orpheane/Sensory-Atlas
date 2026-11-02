@@ -2,7 +2,7 @@
 
 This document is a forward-looking plan, not a claim that the functionality already exists.
 
-## Phase 0 - Ideathon concept (current)
+## Phase 0 - Initial concept (current)
 - Define the problem from lived experience.
 - Develop a solution hypothesis and core user needs.
 - Establish design values around individuality, trust, and privacy.
