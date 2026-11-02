@@ -285,3 +285,151 @@ html[data-theme=dark] .route-choice[aria-pressed=true]{background:#2b4846}
 @media(prefers-reduced-motion:reduce){
   .map-canvas-v2 .map-pin-symbol{transition:none!important}
 }
+
+
+/* Calm map: default low-stimulation presentation, progressive disclosure. */
+.map-demo-v2{
+  --map-land:#f1f5f0;
+  --map-water:#d7e9e9;
+  --map-water-shine:#edf8f5;
+  --map-road-border:#dfe8e1;
+  --map-road:#fcfdfa;
+  --map-building:#e1e9e2;
+  --map-building-edge:#d4dfd7;
+  --map-park:#daeada;
+  --map-park-muted:#e2eee2;
+  --zone-calm:#9ecbb3;
+  --zone-mixed:#e5d29e;
+  --zone-busy:#dfaeb5;
+  --map-label:#5e7971;
+  --map-tag-bg:#f1f7f3;
+}
+.map-demo-v2 .map-demo-status{display:none}
+.map-demo-v2 .map-key-calm{
+  min-height:32px;
+  padding:1px 31px 13px;
+  font-size:.77rem;
+}
+.map-demo-v2 .map-key-hint{
+  color:var(--muted);
+  font-weight:550;
+}
+.map-canvas-v2{
+  height:440px;
+}
+.map-canvas-v2 .map-pin{
+  min-width:46px;
+  width:46px;
+  min-height:46px;
+  z-index:3;
+  opacity:.78;
+}
+.map-canvas-v2 .map-pin[aria-pressed="true"],
+.map-canvas-v2 .map-pin:focus-visible{
+  opacity:1;
+  z-index:5;
+}
+.map-canvas-v2 .map-pin-symbol,
+.map-canvas-v2 .map-pin:hover .map-pin-symbol,
+.map-canvas-v2 .map-pin[aria-pressed="true"] .map-pin-symbol{
+  width:41px;
+  height:41px;
+  border:2px solid var(--paper);
+  border-radius:50%;
+  transform:none;
+  box-shadow:0 3px 11px #1d413729;
+  transition:none;
+}
+.map-canvas-v2 .map-pin-emoji{
+  font-size:1.12rem;
+  transform:none;
+}
+.map-canvas-v2 .map-pin.match-good{--pin-bg:#c8e4d2}
+.map-canvas-v2 .map-pin.match-some{--pin-bg:#f1e1bb}
+.map-canvas-v2 .map-pin.match-low{--pin-bg:#ebd0d5}
+.map-canvas-v2 .map-pin-label{
+  display:none;
+  position:absolute;
+  top:47px;
+  left:50%;
+  width:max-content;
+  min-width:0;
+  max-width:180px;
+  padding:7px 11px;
+  border-radius:10px;
+  transform:translateX(-50%);
+  text-align:center;
+  color:var(--ink);
+  font-size:.78rem;
+  line-height:1.3;
+  white-space:normal;
+  background:var(--paper);
+  border:1px solid var(--line);
+  box-shadow:0 5px 16px #112e3020;
+}
+.map-canvas-v2 .map-pin[aria-pressed="true"] .map-pin-label,
+.map-canvas-v2 .map-pin:focus-visible .map-pin-label{
+  display:block;
+}
+.map-canvas-v2 .map-pin[aria-pressed="true"] .map-pin-label{
+  padding:6px 10px;
+  border:2px solid var(--teal);
+}
+.map-canvas-v2 .map-pin[aria-pressed="true"] .map-pin-symbol{
+  outline:2px solid var(--teal);
+  outline-offset:3px;
+}
+.map-demo-v2 .map-scroll{background:var(--map-land)}
+.map-canvas-v2 #sensory-areas{opacity:.73}
+.map-canvas-v2[data-route="quiet"] .route-direct,
+.map-canvas-v2[data-route="quiet"] .route-underlay-direct,
+.map-canvas-v2[data-route="direct"] .route-quiet,
+.map-canvas-v2[data-route="direct"] .route-underlay-quiet{
+  display:none;
+}
+.map-canvas-v2 .route-quiet,
+.map-canvas-v2 .route-direct{
+  opacity:1;
+}
+.map-canvas-v2 .route-quiet{stroke-width:8}
+.map-canvas-v2 .route-direct{stroke-width:8;stroke-dasharray:14 12}
+.map-canvas-v2 .route-underlay{stroke-width:16}
+.map-demo-v2 .map-place-details{
+  padding-top:19px;
+  padding-bottom:17px;
+}
+.map-demo-v2 .map-place-metrics span{
+  border-radius:9px;
+}
+html[data-theme="dark"] .map-demo-v2{
+  --map-land:#25363c;
+  --map-water:#2c4b55;
+  --map-water-shine:#375864;
+  --map-road-border:#394e53;
+  --map-road:#34464c;
+  --map-building:#3a5154;
+  --map-building-edge:#476164;
+  --map-park:#305249;
+  --map-park-muted:#2d4842;
+  --map-label:#b6d0c6;
+  --zone-calm:#729f8c;
+  --zone-mixed:#b7a077;
+  --zone-busy:#af8997;
+  --map-tag-bg:#293f43;
+}
+html[data-theme="dark"] .map-canvas-v2 .map-pin.match-good{--pin-bg:#739f8a}
+html[data-theme="dark"] .map-canvas-v2 .map-pin.match-some{--pin-bg:#a59370}
+html[data-theme="dark"] .map-canvas-v2 .map-pin.match-low{--pin-bg:#a37f8b}
+html[data-theme="dark"] .map-canvas-v2 .map-pin-label{
+  background:#192e35;
+  border-color:#4a6668;
+  color:#eff8f5;
+}
+@media(max-width:700px){
+  .map-canvas-v2{height:410px;min-width:850px}
+  .map-canvas-v2 .map-pin-label{font-size:.78rem}
+  .map-demo-v2 .map-key-calm{padding:1px 19px 12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .map-canvas-v2 .map-pin-symbol{transition:none!important}
+}
