@@ -3,10 +3,10 @@
 // Fictional venues, sample sensory ratings, and approximate positions on an
 // illustrated neighborhood. This is not real geodata or a navigation service.
 const places = [
-  {id:'willow',name:'Willow Reading Room',type:'Library',noise:1,light:2,crowd:1,quiet:true,detail:'Soft lighting and quiet reading corners',icon:'📚',x:29,y:32},
-  {id:'juniper',name:'Juniper Community Hub',type:'Community space',noise:3,light:3,crowd:3,quiet:true,detail:'Flexible activity rooms and a separate lounge',icon:'🏡',x:72,y:32},
-  {id:'moss',name:'Moss & Maple Café',type:'Café',noise:2,light:4,crowd:2,quiet:false,detail:'Bright windows and a compact seating area',icon:'☕',x:50,y:57},
-  {id:'harbor',name:'Harbor Market Hall',type:'Market',noise:4,light:4,crowd:5,quiet:false,detail:'Popular indoor market with a lively atmosphere',icon:'🛍️',x:84,y:67}
+  {id:'willow',name:'Willow Reading Room',type:'Library',noise:1,light:2,crowd:1,quiet:true,detail:'Soft lighting and quiet reading corners',icon:'📚',x:29,y:30},
+  {id:'juniper',name:'Juniper Community Hub',type:'Community space',noise:3,light:3,crowd:3,quiet:true,detail:'Flexible activity rooms and a separate lounge',icon:'🏡',x:72,y:28},
+  {id:'moss',name:'Moss & Maple Café',type:'Café',noise:2,light:4,crowd:2,quiet:false,detail:'Bright windows and a compact seating area',icon:'☕',x:51,y:56},
+  {id:'harbor',name:'Harbor Market Hall',type:'Market',noise:4,light:4,crowd:5,quiet:false,detail:'Popular indoor market with a lively atmosphere',icon:'🛍️',x:85,y:70}
 ];
 const names=['Very low','Low','Moderate','High','Very high'];
 const dimensions=['noise','light','crowd'];
@@ -14,8 +14,44 @@ const sliders=dimensions.map(id=>document.getElementById(id));
 const list=document.getElementById('place-list');
 const reset=document.getElementById('reset');
 const pinLayer=document.getElementById('map-pins');
-const mapDetails=document.getElementById('map-detail');
-let selectedPlaceId=null;
+const mapDetails=document.getElementById('map-panel-places');
+const routesPanel=document.getElementById('map-panel-routes');
+const mapCanvas=document.getElementById('map-canvas');
+const routeLayer=document.getElementById('route-lines');
+const zoneLayer=document.getElementById('sensory-areas');
+const placesButton=document.getElementById('view-places');
+const routesButton=document.getElementById('view-routes');
+const quietRouteButton=document.getElementById('select-route-quiet');
+const directRouteButton=document.getElementById('select-route-direct');
+let selectedPlaceId='willow';
+function setMapView(view){
+  const routes=view==='routes';
+  placesButton.setAttribute('aria-pressed',String(!routes));
+  routesButton.setAttribute('aria-pressed',String(routes));
+  mapDetails.hidden=routes;
+  routesPanel.hidden=!routes;
+  pinLayer.hidden=routes;
+  routeLayer.hidden=!routes;
+  document.getElementById('map-key-places').hidden=routes;
+  document.getElementById('map-key-routes').hidden=!routes;
+  mapCanvas.dataset.view=view;
+}
+function setRouteChoice(choice){
+  mapCanvas.dataset.route=choice;
+  quietRouteButton.setAttribute('aria-pressed',String(choice==='quiet'));
+  directRouteButton.setAttribute('aria-pressed',String(choice==='direct'));
+  quietRouteButton.querySelector('em').textContent=choice==='quiet'?'Selected route':'Compare this route';
+  directRouteButton.querySelector('em').textContent=choice==='direct'?'Selected route':'Compare this route';
+}
+placesButton.addEventListener('click',()=>setMapView('places'));
+routesButton.addEventListener('click',()=>setMapView('routes'));
+quietRouteButton.addEventListener('click',()=>setRouteChoice('quiet'));
+directRouteButton.addEventListener('click',()=>setRouteChoice('direct'));
+document.getElementById('show-zones').addEventListener('change',event=>{
+  zoneLayer.hidden=!event.target.checked;
+});
+setMapView('places');
+setRouteChoice('quiet');
 
 function currentPreferences(){
   return Object.fromEntries(sliders.map(el=>[el.id,Number(el.value)]));
@@ -48,6 +84,7 @@ function renderPlace(place,score){
   seeOnMap.type='button';
   seeOnMap.setAttribute('aria-label','Show '+place.name+' on the concept map');
   seeOnMap.addEventListener('click',()=>{
+    setMapView('places');
     selectPlace(place.id);
     document.querySelector('.map-demo').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
     const pin=Array.from(pinLayer.querySelectorAll('.map-pin')).find(btn=>btn.dataset.placeId===place.id);
@@ -75,14 +112,20 @@ function makePin(place,score){
 }
 function selectPlace(id){
   selectedPlaceId=id;
-  const selected=places.find(place=>place.id===id);
-  if(!selected)return;
-  const score=matching(selected,currentPreferences());
-  document.getElementById('map-detail-name').textContent=selected.name+' · '+score+' of 3 preferences matched';
-  document.getElementById('map-detail-description').textContent=
-    selected.type+' · Noise '+selected.noise+'/5 · Light '+selected.light+'/5 · Crowds '+selected.crowd+'/5 · '+
-    (selected.quiet?'Quiet area noted':'No quiet area recorded')+'. '+selected.detail+'.';
-  mapDetails.classList.add('has-selection');
+  const place=places.find(candidate=>candidate.id===id);
+  if(!place)return;
+  const score=matching(place,currentPreferences());
+  document.getElementById('map-detail-icon').textContent=place.icon;
+  document.getElementById('map-detail-type').textContent=place.type+' · Fictional venue';
+  document.getElementById('map-detail-name').textContent=place.name;
+  document.getElementById('map-detail-description').textContent=place.detail;
+  const match=document.getElementById('map-detail-match');
+  match.textContent=score+' of 3 preferences matched';
+  match.className='map-place-match '+matchClass(score);
+  document.getElementById('map-detail-noise').textContent='Noise: '+place.noise+'/5 · '+names[place.noise-1];
+  document.getElementById('map-detail-light').textContent='Light: '+place.light+'/5 · '+names[place.light-1];
+  document.getElementById('map-detail-crowd').textContent='Crowds: '+place.crowd+'/5 · '+names[place.crowd-1];
+  document.getElementById('map-detail-quiet').textContent=place.quiet?'✓ Quiet area noted':'No quiet area recorded';
   pinLayer.querySelectorAll('.map-pin').forEach(pin=>pin.setAttribute('aria-pressed',String(pin.dataset.placeId===id)));
   list.querySelectorAll('.place-card').forEach(card=>card.classList.toggle('is-selected',card.dataset.placeId===id));
 }
