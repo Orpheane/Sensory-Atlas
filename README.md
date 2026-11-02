@@ -38,15 +38,17 @@ Rather than rating places as universally good or bad, the goal is to help people
 
 **[Try the live Sensory Atlas showcase](https://orpheane.github.io/Sensory-Atlas/#try)**
 
-The interactive showcase now includes a **fictional, clickable sensory map**, a synchronized place list, and a comparison of personal comfort preferences. It also offers **light and dark themes**, adjustable text sizes, and an optional browser-based **read-aloud** control.
+The interactive showcase includes a **fictional neighborhood map** with soft, sensory-themed areas, selectable venue markers, synchronized place details, and a comparison of personal comfort preferences. It also offers **light and dark themes**, adjustable text sizes, and an optional browser-based **read-aloud** control.
 
-The interactive example shows how personal preferences could change which places are recommended:
+Visitors can:
 
-1. Set preferred limits for **noise**, **lighting**, and **crowding**.
-2. Explore a set of fictional venues and see which examples match those preferences.
-3. Adjust the settings to understand why a single universal accessibility score would not work for everyone.
+1. Explore the **Places** view, select one of four fictional venues, and read its illustrative noise, lighting, crowding, and quiet-space details.
+2. Set preferred limits for **noise**, **lighting**, and **crowding**. Both map markers and the venue list update to reflect these preferences.
+3. Show or hide illustrative sensory areas on the map.
+4. Switch to **Compare routes** and choose between two *drawn example routes* to the same fictional destination. This communicates a future routing idea, not functioning navigation.
+5. See why a personalized match is more useful than one universal accessibility score.
 
-**Demo limitations:** The places, their map positions, and their 1–5 sensory ratings are fictional. The demonstration does not use live geographic data, measured sound or light levels, actual crowd information, or verified community submissions. It is not medical advice, and sensory slider preferences are not stored or sent to a server. Only optional **display choices** (theme and font size) are saved in your browser's local storage.
+**Demo limitations:** All places, map positions, environmental areas, route shapes, and 1–5 sensory ratings are fictional. There is **no real routing, geographic search, measured noise or light, live crowd information, or verified community data**. The sample matching is illustrative and not a safety assessment or medical advice. The sensory slider preferences are not stored or sent to a server. Only optional **display choices** (theme and text size) are saved in your browser's local storage.
 
 ## Why it matters
 
@@ -69,6 +71,7 @@ Physical accessibility information is essential, but it does not tell the whole 
 - [x] Create a visual identity and public project showcase
 - [x] Publish an interactive demonstration with fictional data
 - [x] Add a fictional map view and first-pass display accessibility controls
+- [x] Redesign the sample neighborhood and introduce an interactive example of two route styles
 - [ ] Gather feedback from neurodivergent and sensory-sensitive people
 - [ ] Design and test accessible map, search, and place-detail prototypes
 - [ ] Define community submission, moderation, and data quality rules
