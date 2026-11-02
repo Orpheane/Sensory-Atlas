@@ -19,6 +19,8 @@ const routesPanel=document.getElementById('map-panel-routes');
 const mapCanvas=document.getElementById('map-canvas');
 const routeLayer=document.getElementById('route-lines');
 const zoneLayer=document.getElementById('sensory-areas');
+const zonesToggle=document.getElementById('show-zones');
+const zonesSwitch=document.querySelector('.zones-switch');
 const placesButton=document.getElementById('view-places');
 const routesButton=document.getElementById('view-routes');
 const quietRouteButton=document.getElementById('select-route-quiet');
@@ -32,6 +34,8 @@ function setMapView(view){
   routesPanel.hidden=!routes;
   pinLayer.hidden=routes;
   routeLayer.hidden=!routes;
+  zonesSwitch.hidden=routes;
+  zoneLayer.hidden=routes || !zonesToggle.checked;
   document.getElementById('map-key-places').hidden=routes;
   document.getElementById('map-key-routes').hidden=!routes;
   mapCanvas.dataset.view=view;
@@ -47,8 +51,8 @@ placesButton.addEventListener('click',()=>setMapView('places'));
 routesButton.addEventListener('click',()=>setMapView('routes'));
 quietRouteButton.addEventListener('click',()=>setRouteChoice('quiet'));
 directRouteButton.addEventListener('click',()=>setRouteChoice('direct'));
-document.getElementById('show-zones').addEventListener('change',event=>{
-  zoneLayer.hidden=!event.target.checked;
+zonesToggle.addEventListener('change',event=>{
+  zoneLayer.hidden=mapCanvas.dataset.view==='routes' || !event.target.checked;
 });
 setMapView('places');
 setRouteChoice('quiet');
