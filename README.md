@@ -8,11 +8,11 @@
 
 [**Explore the live concept**](https://orpheane.github.io/Sensory-Atlas/) · [The vision](#the-vision) · [Interactive demo](#interactive-concept-demo) · [Roadmap](#roadmap)
 
-![Ideathon concept](https://img.shields.io/badge/status-ideathon%20concept-4B9E96?style=flat-square) ![STEMergent Hacks 2026](https://img.shields.io/badge/event-STEMergent%20Hacks%202026-8578C8?style=flat-square)
+![Early-stage concept](https://img.shields.io/badge/status-early--stage%20concept-4B9E96?style=flat-square)
 
 </div>
 
-> **Current stage:** Sensory Atlas is an early-stage concept developed for the **STEMergent Hacks 2026 Ideathon**. This repository hosts a live project showcase and a small interactive demonstration with **fictional places and sample ratings**. It is not yet a live mapping service or a source of verified accessibility information.
+> **Current stage:** Sensory Atlas is an independent, early-stage concept focused on sensory accessibility. This repository hosts a live project showcase and a small interactive demonstration with **fictional places and sample ratings**. It is not yet a live mapping service or a source of verified accessibility information.
 
 ## The vision
 
@@ -85,7 +85,7 @@ Read more in [the project roadmap](docs/ROADMAP.md) and [privacy and accessibili
 
 ## Project origin
 
-Sensory Atlas was conceived for the **STEMergent Hacks 2026 Ideathon**, based on personal experiences of neurodivergence and the belief that invisible accessibility barriers deserve more attention.
+Sensory Atlas grew from personal experiences of neurodivergence and the belief that invisible accessibility barriers deserve more attention.
 
 Concept and project by **[Orpheane](https://github.com/Orpheane)**.
 
