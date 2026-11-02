@@ -38,13 +38,15 @@ Rather than rating places as universally good or bad, the goal is to help people
 
 **[Try the live Sensory Atlas showcase](https://orpheane.github.io/Sensory-Atlas/#try)**
 
+The interactive showcase now includes a **fictional, clickable sensory map**, a synchronized place list, and a comparison of personal comfort preferences. It also offers **light and dark themes**, adjustable text sizes, and an optional browser-based **read-aloud** control.
+
 The interactive example shows how personal preferences could change which places are recommended:
 
 1. Set preferred limits for **noise**, **lighting**, and **crowding**.
 2. Explore a set of fictional venues and see which examples match those preferences.
 3. Adjust the settings to understand why a single universal accessibility score would not work for everyone.
 
-**Demo limitations:** The places and 1–5 sensory ratings are fictional. The demonstration does not use live geographic data, measured sound or light levels, actual crowd information, or verified community submissions. It is not medical advice and does not store personal sensory preferences.
+**Demo limitations:** The places, their map positions, and their 1–5 sensory ratings are fictional. The demonstration does not use live geographic data, measured sound or light levels, actual crowd information, or verified community submissions. It is not medical advice, and sensory slider preferences are not stored or sent to a server. Only optional **display choices** (theme and font size) are saved in your browser's local storage.
 
 ## Why it matters
 
@@ -66,6 +68,7 @@ Physical accessibility information is essential, but it does not tell the whole 
 - [x] Plan the initial feature set and sensory preference concept
 - [x] Create a visual identity and public project showcase
 - [x] Publish an interactive demonstration with fictional data
+- [x] Add a fictional map view and first-pass display accessibility controls
 - [ ] Gather feedback from neurodivergent and sensory-sensitive people
 - [ ] Design and test accessible map, search, and place-detail prototypes
 - [ ] Define community submission, moderation, and data quality rules
