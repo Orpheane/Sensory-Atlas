@@ -11,6 +11,16 @@
   <meta property="og:image" content="assets/hero.svg">
   <title>Sensory Atlas | Accessibility beyond physical barriers</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('sensory-atlas-theme');
+        document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        var size = localStorage.getItem('sensory-atlas-text-size');
+        if (['normal','large','extra'].includes(size)) document.documentElement.dataset.textSize = size;
+      } catch (e) { document.documentElement.dataset.theme = 'light'; }
+    }());
+  </script>
   <link rel="stylesheet" href="styles.css">
   <script defer src="app.js"></script>
 </head>
@@ -28,9 +38,40 @@
         <a href="#try">Concept demo</a>
         <a href="#roadmap">Roadmap</a>
       </nav>
+      <div class="header-tools">
+        <button id="theme-toggle" class="utility-button" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span aria-hidden="true" id="theme-icon">☾</span><span class="utility-text" id="theme-label">Dark mode</span></button>
+        <button id="accessibility-toggle" class="utility-button" type="button" aria-expanded="false" aria-controls="accessibility-panel"><span aria-hidden="true">Aa</span><span class="utility-text">Accessibility</span></button>
+      </div>
       <a class="nav-cta" href="https://github.com/Orpheane/Sensory-Atlas" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">↗</span></a>
     </div>
   </header>
+  <aside id="accessibility-panel" class="accessibility-panel" aria-labelledby="accessibility-title" hidden>
+    <div class="accessibility-titlebar">
+      <h2 id="accessibility-title">Accessibility settings</h2>
+      <button id="accessibility-close" class="panel-close" type="button" aria-label="Close accessibility settings">×</button>
+    </div>
+    <p>Make this showcase easier to read and explore. Display settings stay on this device.</p>
+    <fieldset class="a11y-group">
+      <legend>Text size</legend>
+      <div class="a11y-segments" role="group" aria-label="Choose text size">
+        <button type="button" class="text-size-button" data-text-choice="normal" aria-pressed="true">Default</button>
+        <button type="button" class="text-size-button" data-text-choice="large" aria-pressed="false">Large</button>
+        <button type="button" class="text-size-button" data-text-choice="extra" aria-pressed="false">Extra large</button>
+      </div>
+    </fieldset>
+    <fieldset class="a11y-group">
+      <legend>Read aloud</legend>
+      <p class="a11y-help">Uses your browser's available voices to read the page content.</p>
+      <label for="speech-rate">Reading speed</label>
+      <select id="speech-rate"><option value="0.8">Slow</option><option value="1" selected>Normal</option><option value="1.2">Fast</option></select>
+      <div class="speech-actions">
+        <button type="button" class="a11y-action" id="read-page">▶ Read page</button>
+        <button type="button" class="a11y-action secondary" id="stop-reading" disabled>■ Stop</button>
+      </div>
+      <p class="a11y-help" id="speech-status" role="status" aria-live="polite">Ready to read.</p>
+    </fieldset>
+    <button type="button" id="reset-accessibility" class="reset-button">Reset display settings</button>
+  </aside>
   <main id="main">
     <section class="hero" id="top">
       <div class="container hero-layout">
@@ -77,6 +118,46 @@
     <section class="demo section" id="try">
       <div class="container">
         <div class="demo-heading"><div><span class="kicker">03 / INTERACTIVE CONCEPT</span><h2>What feels comfortable <span class="accent">to you?</span></h2><p>Adjust three preferences to see how a future Sensory Atlas could help you compare places. There is no single definition of a “good” sensory environment.</p></div><div class="demo-stamp">Interactive illustration <span aria-hidden="true">✳</span></div></div>
+        <section class="map-demo" aria-labelledby="map-title">
+          <div class="map-demo-heading">
+            <div>
+              <span class="kicker">THE MAP EXPERIENCE</span>
+              <h3 id="map-title">See your comfort on the map.</h3>
+              <p>Explore a fictional neighborhood. Choose a location marker to see its sensory details, then change the preferences below to see how matches change.</p>
+            </div>
+            <div class="map-legend" aria-label="Map match legend">
+              <span><i class="legend-dot legend-good" aria-hidden="true"></i>3/3 match</span>
+              <span><i class="legend-dot legend-some" aria-hidden="true"></i>2/3 match</span>
+              <span><i class="legend-dot legend-low" aria-hidden="true"></i>0-1/3 match</span>
+            </div>
+          </div>
+          <div class="map-canvas" aria-label="Illustrated map of a fictional neighborhood with four interactive venue markers">
+            <svg class="illustrated-map" viewBox="0 0 960 490" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+              <rect width="960" height="490" fill="var(--map-land)"/>
+              <path d="M0 350 Q125 284 230 342 T470 356 T720 310 T960 292 L960 490 H0Z" fill="var(--map-water)"/>
+              <path d="M0 377 Q125 312 230 370 T470 385 T720 337 T960 322" fill="none" stroke="var(--map-water-shine)" stroke-width="5" opacity=".8"/>
+              <path d="M0 90 H960 M0 237 H960 M145 0 V490 M358 0 V490 M590 0 V490 M812 0 V490" stroke="var(--map-road-outline)" stroke-width="34" fill="none"/>
+              <path d="M0 90 H960 M0 237 H960 M145 0 V490 M358 0 V490 M590 0 V490 M812 0 V490" stroke="var(--map-road)" stroke-width="27" fill="none"/>
+              <path d="M0 237 H960 M358 0 V490" stroke="var(--map-road-dash)" stroke-width="2" stroke-dasharray="9 15" fill="none" opacity=".65"/>
+              <g fill="var(--map-building)" stroke="var(--map-building-edge)" stroke-width="2">
+                <rect x="25" y="17" width="91" height="43" rx="9"/><rect x="183" y="23" width="137" height="39" rx="9"/><rect x="393" y="18" width="160" height="42" rx="9"/><rect x="634" y="20" width="137" height="42" rx="9"/><rect x="850" y="18" width="82" height="43" rx="9"/>
+                <rect x="24" y="131" width="90" height="70" rx="10"/><rect x="183" y="124" width="134" height="82" rx="10"/><rect x="393" y="126" width="153" height="77" rx="10"/><rect x="630" y="126" width="140" height="80" rx="10"/><rect x="849" y="126" width="83" height="80" rx="10"/>
+                <rect x="24" y="281" width="94" height="42" rx="8"/><rect x="181" y="277" width="140" height="53" rx="9"/><rect x="393" y="277" width="154" height="53" rx="9"/><rect x="847" y="277" width="86" height="55" rx="9"/>
+              </g>
+              <path d="M626 273 H774 V401 Q700 421 624 395Z" fill="var(--map-park)" opacity=".95"/>
+              <g fill="var(--map-tree)"><circle cx="659" cy="296" r="12"/><circle cx="729" cy="307" r="18"/><circle cx="684" cy="369" r="17"/><circle cx="754" cy="360" r="11"/><circle cx="493" cy="345" r="14"/><circle cx="72" cy="337" r="14"/><circle cx="264" cy="356" r="12"/></g>
+              <path d="M647 380 Q679 341 710 344 T776 384" fill="none" stroke="var(--map-park-path)" stroke-width="9" stroke-linecap="round"/>
+              <g stroke="var(--map-building-edge)" stroke-width="3" stroke-linecap="round" opacity=".6"><path d="M42 37 H93 M199 43 H300 M416 37 H527 M648 39 H743 M409 159 H532 M194 157 H298"/></g>
+              <text x="45" y="466" fill="var(--map-label)" font-size="16" font-weight="700" letter-spacing="2">FICTIONAL NEIGHBORHOOD · NOT REAL MAP DATA</text>
+            </svg>
+            <div id="map-pins" class="map-pins" aria-label="Select a fictional place"></div>
+          </div>
+          <div class="map-detail" id="map-detail" role="status" aria-live="polite">
+            <span class="map-detail-icon" aria-hidden="true">⌖</span>
+            <div><strong id="map-detail-name">Select a marker to explore a place</strong><p id="map-detail-description">Every place shown is fictional. Sensory ratings are illustrative.</p></div>
+          </div>
+          <p class="map-note"><strong>Map concept only:</strong> This illustrated layout is not a real map, navigation service, or live sensor feed. Selectable pins and the place list use the same fictional sample data.</p>
+        </section>
         <div class="demo-shell">
           <section class="preferences" aria-labelledby="preferences-title">
             <div class="panel-heading"><span class="panel-icon" aria-hidden="true">◎</span><div><h3 id="preferences-title">Your comfort preferences</h3><p>Maximum intensity that feels comfortable</p></div></div>
