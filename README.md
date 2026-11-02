@@ -42,9 +42,9 @@ The interactive showcase includes a **fictional neighborhood map** with soft, se
 
 Visitors can:
 
-1. Explore the **Places** view, select one of four fictional venues, and read its illustrative noise, lighting, crowding, and quiet-space details.
+1. Explore the **Places** view in its calm-by-default layout. Decorative map details and sensory areas are hidden initially, and only the selected fictional venue is labeled.
 2. Set preferred limits for **noise**, **lighting**, and **crowding**. Both map markers and the venue list update to reflect these preferences.
-3. Show or hide illustrative sensory areas on the map.
+3. Optionally reveal or hide lightly colored sensory areas. They are hidden by default to reduce visual overload.
 4. Switch to **Compare routes** and choose between two *drawn example routes* to the same fictional destination. This communicates a future routing idea, not functioning navigation.
 5. See why a personalized match is more useful than one universal accessibility score.
 
