@@ -199,3 +199,19 @@ readButton.addEventListener('click',()=>{
 });
 stopButton.addEventListener('click',()=>stopReading());
 window.addEventListener('pagehide',()=>{if(speechSupported)window.speechSynthesis.cancel();});
+
+
+// Optional visual upgrades. Existing SVG illustrations stay visible until the
+// real curated image files are present, so Pages never shows broken images.
+document.querySelectorAll('img[data-concept-src]').forEach(target=>{
+  const candidate=new Image();
+  candidate.onload=()=>{target.src=candidate.src;};
+  candidate.src=target.dataset.conceptSrc;
+});
+const accessibilityVisual=document.getElementById('accessibility-visual');
+if(accessibilityVisual){
+  const picture=accessibilityVisual.querySelector('img');
+  const test=new Image();
+  test.onload=()=>{picture.src=test.src;accessibilityVisual.hidden=false;};
+  test.src=picture.getAttribute('src');
+}
