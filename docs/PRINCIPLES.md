@@ -22,4 +22,4 @@ Offer keyboard operation, focus indicators, strong contrast, clear labels, reduc
 Crowdsourced information requires moderation, correction tools, contributor safety, and respectful handling of conflicting experiences. Avoid features that enable harassment or targeting sensitive locations.
 
 ## Honesty about project stage
-This is an Ideathon concept showcase with fictional venues and ratings. It is not yet a real-world directory or live sensory safety service.
+This is an early-stage concept showcase with fictional venues and ratings. It is not yet a real-world directory or live sensory safety service.
