@@ -25,3 +25,9 @@ The showcase uses HTML, CSS, JavaScript, GitHub, and AI-assisted visual explorat
 
 ## Suggested repository topics
 sensory-accessibility, neurodiversity, accessibility, social-good, inclusive-design, ideathon, github-pages
+
+## License and responsible reuse
+
+The HTML, CSS, JavaScript, and Markdown source are licensed under **AGPL-3.0-only**; the complete text is in [LICENSE](LICENSE). The images and illustrations in `assets/` are **not** AGPL-licensed. Read [NOTICE.md](NOTICE.md) before redistributing a fork and replace reserved assets and project branding where appropriate.
+
+Keep the source-code link visible on publicly deployed versions. A modified version offered to users over a network may need to provide those users access to its corresponding source under AGPLv3 section 13. Avoid adding third-party images or sensitive data without reviewing rights and privacy implications.

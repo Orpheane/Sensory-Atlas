@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// Copyright (c) 2026 Orpheane and contributors
 'use strict';
 
 // Fictional venues, sample sensory ratings, and approximate positions on an

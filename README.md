@@ -6,7 +6,7 @@
 
 *Accessibility beyond physical barriers.*
 
-[**Explore the live concept**](https://orpheane.github.io/Sensory-Atlas/) · [The vision](#the-vision) · [Interactive demo](#interactive-concept-demo) · [Roadmap](#roadmap)
+[**Explore the live concept**](https://orpheane.github.io/Sensory-Atlas/) · [The vision](#the-vision) · [Interactive demo](#interactive-concept-demo) · [Roadmap](#roadmap) · [Contribute](CONTRIBUTING.md)
 
 ![Early-stage concept](https://img.shields.io/badge/status-early--stage%20concept-4B9E96?style=flat-square)
 
@@ -92,13 +92,15 @@ Sensory Atlas grew from personal experiences of neurodivergence and the belief t
 
 Concept and project by **[Orpheane](https://github.com/Orpheane)**.
 
-## Copyright and usage
+## Open-source license and contributions
 
-**Copyright © 2026 Orpheane. All rights reserved.**
+**Software source code and text documentation are licensed under GNU Affero General Public License v3.0 only (AGPL-3.0-only).** You may use, study, modify, and redistribute the covered source, including commercially, provided you follow the license's terms. Modifications made available for interaction over a network can trigger obligations to offer the corresponding source code to those users.
 
-This is a **publicly viewable, proprietary project**, **not open-source software**. No general license is granted to copy, modify, republish, distribute, or reuse protected code, writing, or design assets. Viewing or forking through GitHub is subject to GitHub's platform terms, and applicable legal exceptions remain unaffected.
+**Artwork and brand identity are separate.** Files under `assets/` (illustrations, concept mockups, and favicon) are **not licensed under AGPLv3** and may require separate permission for reuse. The name and logos identify the original project; the software license does not grant trademark rights or permission to imply official affiliation. The mark is not claimed to be registered.
 
-See the [full copyright notice](LICENSE) for details. The notice does not claim exclusive rights over the underlying idea of sensory accessibility mapping, nor over third-party material.
+Read the [full AGPLv3 license](LICENSE), [licensing and asset scope](NOTICE.md), and [contribution guidelines](CONTRIBUTING.md) before making a fork or submitting a pull request.
+
+Copyright © 2026 Orpheane and contributors to their respective contributions. The project is an early-stage demo with fictional data, not an operational accessibility map.
 
 ---
 
